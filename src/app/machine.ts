@@ -32,7 +32,7 @@ const machine = createMachine<AppContext>(
           src: 'getCards',
           onDone: {
             target: 'menu',
-            actions: ['setCards', 'shuffleCards'],
+            actions: ['setCards', 'shuffleCards', 'getUser'],
           },
           onError: {
             target: 'error',
@@ -86,7 +86,13 @@ const machine = createMachine<AppContext>(
     actions: {
       setCards: assign({ cards: (_ctx, event) => event.data }),
       setError: assign({ error: (_ctx, event) => event.data }),
-      setUser: assign({ user: (_ctx, event) => event.data }),
+      getUser: assign({ user: () => localStorage.getItem('user') || undefined }),
+      setUser: assign({
+        user: (_ctx, event) => {
+          localStorage.setItem('user', event.data);
+          return event.data;
+        },
+      }),
       handleCard: pure(({ cards }, event) => {
         const matched = [];
         const active: Game.Card[] = [];
