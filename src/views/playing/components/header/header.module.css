@@ -1,0 +1,12 @@
+.header {
+  @apply h-[14vh] flex flex-col items-center justify-center lg:gap-1.5 duration-700 transition-all;
+  @apply landscape:h-[22vh];
+
+  > h1 {
+    @apply text-2xl lg:text-4xl;
+  }
+
+  > p {
+    @apply tracking-[0.75em] text-base lg:text-2xl font-bold ml-3;
+  }
+}

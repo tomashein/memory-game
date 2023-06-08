@@ -1,0 +1,14 @@
+@import 'fonts';
+@import 'typography';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  @apply bg-gradient-to-t from-zinc-950 to-zinc-900 text-white;
+}
+
+#root {
+  @apply h-screen w-screen flex flex-col;
+}

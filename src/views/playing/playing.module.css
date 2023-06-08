@@ -1,0 +1,8 @@
+.playing {
+  @apply duration-700 transition-opacity;
+
+  > div {
+    @apply overflow-hidden grid justify-center items-center h-[78vh] px-4;
+    @apply landscape:h-[68vh] lg:px-8;
+  }
+}

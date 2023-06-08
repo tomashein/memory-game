@@ -1,0 +1,17 @@
+.menu {
+  @apply flex flex-col items-center justify-center duration-700 transition-all pt-[10vh] h-[90vh];
+  @apply landscape:h-[86vh] landscape:pt-[6vh] lg:landscape:pt-[11vh];
+
+  > h1 {
+    @apply text-4xl;
+  }
+
+  > p {
+    @apply tracking-[0.75em] text-2xl font-bold mt-[0.375rem] ml-3;
+  }
+
+  > button {
+    @apply mt-8;
+    @apply landscape:mt-5 lg:landscape:mt-8;
+  }
+}

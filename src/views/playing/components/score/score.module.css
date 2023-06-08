@@ -1,0 +1,16 @@
+.score {
+  @apply flex justify-between gap-5;
+  @apply lg:text-xl;
+
+  > div {
+    @apply uppercase font-display;
+
+    > span {
+      @apply text-orange-400;
+    }
+  }
+
+  &:first-child {
+    @apply text-right;
+  }
+}

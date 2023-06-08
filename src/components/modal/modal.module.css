@@ -1,0 +1,19 @@
+.modal_overlay {
+  @apply fixed inset-0 bg-black/30;
+}
+
+.modal_container {
+  @apply fixed inset-0 flex items-center justify-center p-4;
+}
+
+.modal_panel {
+  @apply mx-auto max-w-sm rounded-xl bg-white p-6 min-w-[300px] text-center;
+}
+
+.modal_title {
+  @apply text-xl font-semibold leading-6 text-zinc-900 uppercase mb-3;
+}
+
+.modal_content {
+  @apply text-zinc-600;
+}
