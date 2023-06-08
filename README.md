@@ -1,6 +1,6 @@
 # A Memory Game - Animals
 
-## Environment
+### Environment
 
 - Node v16.16.1
 
@@ -26,6 +26,10 @@
 - TailwindCSS with Forms plugin.
 - CSS Modules for encapsulation.
 - BEM class naming adapted to modules.
+
+### Browser Support
+
+Modern browsers (not IE).
 
 ### Commands
 
@@ -70,3 +74,7 @@
 - Themify tailwind.
 - Create submachines.
 - Testing.
+
+### Demo
+
+[On Netlify](https://teal-meerkat-b1ab9e.netlify.app/)
