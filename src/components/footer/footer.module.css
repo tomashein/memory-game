@@ -1,8 +1,0 @@
-.footer_container {
-  @apply flex justify-center items-center text-zinc-500 h-[8vh];
-  @apply landscape:h-[10vh];
-
-  > a {
-    @apply text-white ml-1;
-  }
-}

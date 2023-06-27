@@ -1,4 +1,0 @@
-.board {
-  @apply inline-grid grid-cols-3 gap-[2vh];
-  @apply landscape:grid-cols-6 xl:grid-cols-6;
-}
