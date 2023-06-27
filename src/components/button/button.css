@@ -1,0 +1,59 @@
+.button {
+  @apply font-display font-semibold uppercase tracking-widest border-2 px-4 py-1 rounded-md transition-colors;
+  @apply disabled:cursor-default;
+
+  &:focus {
+    @apply outline outline-2 outline-offset-2;
+  }
+}
+
+.button_sm {
+  @apply text-sm;
+}
+
+.button_md {
+  @apply text-base;
+}
+
+.button_lg {
+  @apply text-lg;
+}
+
+.button_primary {
+  @apply !bg-primary-400 border-primary-400 text-zinc-50;
+
+  &:focus {
+    @apply outline-primary-500;
+  }
+
+  &:hover:enabled,
+  &:active:enabled {
+    @apply !bg-primary-500 border-primary-500;
+  }
+}
+
+.button_dark {
+  @apply !bg-zinc-800 border-zinc-800 text-zinc-50;
+
+  &:focus {
+    @apply outline-zinc-950;
+  }
+
+  &:hover:enabled,
+  &:active:enabled {
+    @apply !bg-zinc-950 border-zinc-950;
+  }
+}
+
+.button_light {
+  @apply !bg-zinc-200 border-zinc-200 text-zinc-950;
+
+  &:focus {
+    @apply outline-zinc-50;
+  }
+
+  &:hover:enabled,
+  &:active:enabled {
+    @apply !bg-zinc-50 border-zinc-50;
+  }
+}

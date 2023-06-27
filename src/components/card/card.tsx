@@ -1,40 +1,35 @@
-import { memo } from 'react';
 import clsx from 'clsx';
 import type { ButtonProps } from 'react-html-props';
-import useApp from '@hooks/useApp';
-import styles from './card.module.css';
+import type { ActorRefFrom } from 'xstate';
+import { useSelector } from '@xstate/react';
+import { CardMachine } from '.';
+import './card.css';
 
-type CardProps = ButtonProps & {
+type CardProps = Omit<ButtonProps, 'ref'> & {
   data: Game.Card;
-  disabled?: boolean;
 };
 
-export const Card = ({ data, disabled, ...props }: CardProps) => {
-  const { service } = useApp();
-  const { send } = service;
-
-  const { active, matched } = data;
-
-  const classes = clsx(styles.card, active && styles.card_active);
+const Card = ({ className, data, disabled, ...props }: CardProps) => {
+  const actor = data.ref as ActorRefFrom<CardMachine>;
+  const show = useSelector(actor, (state) => state.value !== 'idle');
+  const classes = clsx('card', show && 'card--active', className);
 
   const handleClick = () => {
-    if (!disabled) {
-      send({ type: 'CLICK_CARD', data });
-    }
+    actor.send({ type: 'CLICK', data: { id: data.id, title: data.title } });
   };
 
   return (
-    <button className={classes} onClick={handleClick} disabled={matched} tabIndex={0} {...props}>
+    <button className={classes} disabled={disabled || show} onClick={handleClick} type="button" {...props}>
       <div>
-        <div className={styles.card_front}>
-          <img alt={data.title} src={data.image} />
+        <div className="card__front">
+          <div>
+            <img alt={data.title} src={data.image} />
+          </div>
         </div>
-        <div className={styles.card_back} />
+        <div className="card__back" />
       </div>
     </button>
   );
 };
 
-const MemoizedCard = memo(Card);
-
-export default MemoizedCard;
+export default Card;

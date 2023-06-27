@@ -1,0 +1,11 @@
+.score {
+  @apply flex justify-between gap-5 col-span-3 lg:text-xl landscape:col-span-6 lg:col-span-6;
+
+  > div {
+    @apply uppercase font-display;
+
+    > span {
+      @apply text-primary-400;
+    }
+  }
+}

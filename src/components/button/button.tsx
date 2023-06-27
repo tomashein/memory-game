@@ -1,21 +1,14 @@
+import { ButtonProps as HTMLButtonProps } from 'react-html-props';
 import clsx from 'clsx';
-import type { ButtonProps as HTMLButtonProps } from 'react-html-props';
-import styles from './button.module.css';
+import './button.css';
 
 type ButtonProps = HTMLButtonProps & {
   size?: 'sm' | 'md' | 'lg';
   variant?: 'primary' | 'dark' | 'light';
 };
 
-const Button: React.FC<ButtonProps> = ({
-  children,
-  className,
-  size = 'sm',
-  variant = 'primary',
-  type = 'button',
-  ...props
-}) => {
-  const classes = clsx(styles.button, styles[`button_${size}`], styles[`button_${variant}`], className);
+const Button = ({ children, className, size = 'md', type = 'button', variant = 'primary', ...props }: ButtonProps) => {
+  const classes = clsx('button', `button_${size}`, `button_${variant}`, className);
 
   return (
     <button className={classes} type={type} {...props}>

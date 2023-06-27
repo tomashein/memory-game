@@ -1,3 +1,6 @@
-import Menu from './menu';
+import MenuView from './menu';
+import menuMachine from './menu.machine';
 
-export default Menu;
+export { menuMachine };
+export type { MenuMachine } from './menu.machine';
+export default MenuView;

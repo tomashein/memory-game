@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
@@ -8,11 +9,18 @@ export default defineConfig({
     alias: {
       '@app': resolve(__dirname, 'src/app'),
       '@components': resolve(__dirname, 'src/components'),
-      '@helpers': resolve(__dirname, 'src/helpers'),
       '@hooks': resolve(__dirname, 'src/hooks'),
-      '@libraries': resolve(__dirname, 'src/libraries'),
-      '@styles': resolve(__dirname, 'src/styles'),
+      '@utilities': resolve(__dirname, 'src/utilities'),
       '@views': resolve(__dirname, 'src/views'),
     },
+  },
+  test: {
+    coverage: {
+      provider: 'v8',
+    },
+    css: false,
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: './src/tests/setup.ts',
   },
 });

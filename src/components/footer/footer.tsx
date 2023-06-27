@@ -1,17 +1,16 @@
-import { memo } from 'react';
-import styles from './footer.module.css';
+import clsx from 'clsx';
+import type { FooterProps } from 'react-html-props';
+import './footer.css';
 
-export const Footer = () => {
+const Footer = ({ className }: FooterProps) => {
   return (
-    <footer className={styles.footer_container}>
+    <footer className={clsx('footer', className)}>
       developed by
-      <a href="https://tomashein.dev" target="_blank">
+      <a className="footer__link" href="https://tomashein.dev" target="_blank">
         tomas hein
       </a>
     </footer>
   );
 };
 
-const MemoizedFooter = memo(Footer);
-
-export default MemoizedFooter;
+export default Footer;

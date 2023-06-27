@@ -16,14 +16,13 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@app/*": ["./src/app/*"],
+      "@app": ["./src/app"],
       "@components/*": ["./src/components/*"],
-      "@helpers/*": ["./src/helpers/*"],
       "@hooks/*": ["./src/hooks/*"],
-      "@libraries/*": ["./src/libraries/*"],
-      "@styles/*": ["./src/styles/*"],
+      "@utilities/*": ["./src/utilities/*"],
       "@views/*": ["./src/views/*"]
-    }
+    },
+		"types": ["vitest/globals"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

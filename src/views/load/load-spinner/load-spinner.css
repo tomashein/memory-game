@@ -1,0 +1,39 @@
+.load__spinner {
+  > i {
+    @apply float-left block h-5 w-4 mx-2 rounded-sm bg-zinc-800 dark:bg-white;
+    &:nth-child(1) {
+      animation: shuffle 750ms infinite;
+    }
+
+    &:nth-child(2) {
+      animation: move 750ms infinite;
+    }
+
+    &:nth-child(3) {
+      animation: move 750ms infinite;
+    }
+  }
+}
+
+@keyframes shuffle {
+  50% {
+    opacity: 0.25;
+    transform: scale(0.9);
+  }
+
+  75% {
+    opacity: 0.25;
+    transform: scale(0.9), translateX(4rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(4rem);
+  }
+}
+
+@keyframes move {
+  100% {
+    transform: translateX(-2rem);
+  }
+}

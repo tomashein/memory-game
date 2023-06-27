@@ -18,14 +18,14 @@
 - React v18.2.0
 - XState v4.37.2
 - XState/React v3.2.2
-- HeadlessUI/React v1.7.15
+- Heroicons/React v2.0.18
 - Clsx v1.2.1
 
 ### Style Strategy
 
-- TailwindCSS with Forms plugin.
-- CSS Modules for encapsulation.
-- BEM class naming adapted to modules.
+- TailwindCSS with some plugins.
+- Light and Dark mode.
+- BEM class naming.
 
 ### Browser Support
 
@@ -41,6 +41,7 @@ Modern browsers (not IE).
 | `yarn lint`     | Runs eslint on all typescript files          |
 | `yarn preview`  | Start preview server of dist files           |
 | `yarn test`     | Runs tests                                   |
+| `yarn test:ui`  | Runs tests with a html interface             |
 | `yarn coverage` | Runs tests with coverage report              |
 
 ### File/Folder Structure
@@ -51,11 +52,11 @@ Modern browsers (not IE).
 ├── src                # Source files
 │   ├── app            # App entry point, router and machine
 │   ├── components     # Reutilizable UI components
-│   ├── helpers        # Helpers functions
 │   ├── hooks          # Shared hooks
-│   ├── libraries      # Shared external libraries
 │   ├── styles         # Global stylesheets
+│   ├── tests          # Tests settings and utilities
 │   ├── types          # Declarations and types
+│   ├── utilities      # Helper functions
 │   ├── views          # Main app views
 │   └── main.tsx       # Bootstrap file
 └── README.md          # This file
@@ -65,15 +66,15 @@ Modern browsers (not IE).
 
 - Development server uses port 5173 (http://localhost:5173).
 - Preview server uses port 4173 (http://localhost:4173).
-- State is managed through a finite machine.
+- State is managed through finite machines.
 - Absolute importing with @ alias.
 - Responsive design.
 
 ### Todo
 
-- Themify tailwind.
-- Create submachines.
-- Testing.
+- Add husky to lint/prettier on precommit.
+- Cleanup.
+- More Testing.
 
 ### Demo
 

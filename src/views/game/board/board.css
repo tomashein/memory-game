@@ -1,0 +1,5 @@
+.board {
+  @apply inline-grid grid-cols-3 gap-[2vh] aspect-[3/6.65] place-content-center h-[78vh] max-w-full;
+  @apply landscape:grid-cols-6 landscape:aspect-[6/3.36] landscape:h-[68vh] landscape:gap-[3vh];
+  @apply lg:aspect-[6/3.2] lg:grid-cols-6 lg:h-[76vh];
+}

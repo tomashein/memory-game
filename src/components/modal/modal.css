@@ -1,0 +1,23 @@
+.modal {
+  @apply mx-auto max-w-sm rounded-xl bg-white p-6 min-w-[300px] text-center backdrop:bg-zinc-950/75;
+
+  &--open {
+    @apply fade-in-fast;
+  }
+
+  &__title {
+    @apply mb-3 text-xl font-semibold uppercase leading-6 text-zinc-900 px-6;
+  }
+
+  &__content {
+    @apply text-zinc-600;
+  }
+
+  &__close {
+    @apply absolute top-1 right-1 text-zinc-400 hover:text-zinc-900 transition-colors p-2;
+
+    > svg {
+      @apply h-6 w-6;
+    }
+  }
+}

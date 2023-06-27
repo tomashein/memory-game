@@ -1,10 +1,12 @@
-import Router from './router';
-import { AppProvider } from './state';
+import { AppProvider } from './app.provider';
+import AppRouter from './app.router';
+import ThemeToggle from './theme-toggle';
 
 const App = () => {
   return (
     <AppProvider>
-      <Router />
+      <AppRouter />
+      <ThemeToggle />
     </AppProvider>
   );
 };

@@ -1,0 +1,43 @@
+.card {
+  @apply aspect-[1/1] rounded;
+  perspective: 1000px;
+
+  &:focus-visible {
+    @apply outline-2 outline-primary-400 outline outline-offset-2;
+  }
+
+  > div {
+    @apply relative h-full w-full;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+
+    > div {
+      @apply absolute h-full w-full rounded shadow-md;
+      backface-visibility: hidden;
+    }
+  }
+
+  &__front {
+    transform: rotateY(180deg);
+    @apply bg-white border-[4px] border-white;
+    @apply landscape:max-lg:border-[3px] lg:border-[6px];
+
+    > div {
+      @apply flex items-center justify-center overflow-hidden h-full w-full rounded;
+    }
+
+    img {
+      @apply min-w-full min-h-full object-cover;
+    }
+  }
+
+  &__back {
+    @apply bg-zinc-300 dark:bg-zinc-800;
+  }
+}
+
+.card--active {
+  > div {
+    transform: rotateY(-180deg);
+  }
+}

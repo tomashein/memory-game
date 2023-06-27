@@ -1,12 +1,31 @@
-@import 'fonts';
-@import 'typography';
+@import 'fonts.css';
+@import 'typography.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply bg-gradient-to-t from-zinc-300 to-zinc-50 text-zinc-900;
+    @apply dark:from-zinc-950 dark:to-zinc-900 dark:text-white;
+  }
+}
+
+@layer utilities {
+  .fade-in {
+    @apply animate-fade animate-once animate-duration-1000 animate-ease-linear;
+  }
+  .fade-in-fast {
+    @apply animate-fade animate-once animate-duration-150 animate-ease-linear;
+  }
+}
+
 :root {
-  @apply bg-gradient-to-t from-zinc-950 to-zinc-900 text-white;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #root {

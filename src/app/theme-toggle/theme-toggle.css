@@ -1,0 +1,11 @@
+.theme-toggle {
+  @apply absolute top-6 right-6;
+
+  > svg {
+    @apply h-6 w-6 transition-all text-zinc-400 dark:text-zinc-500;
+
+    &:hover {
+      @apply text-zinc-900 dark:text-zinc-50;
+    }
+  }
+}

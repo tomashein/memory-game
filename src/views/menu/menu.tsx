@@ -1,64 +1,40 @@
-import { Fragment, useState } from 'react';
 import { useSelector } from '@xstate/react';
-import { Transition } from '@headlessui/react';
 import Button from '@components/button';
+import Footer from '@components/footer';
+import Header from '@components/header';
 import useApp from '@hooks/useApp';
-import Hero from './components/hero';
-import RequestName from './components/request-name';
-import styles from './menu.module.css';
+import useMenu from '@hooks/useMenu';
+import RequestName from './request-name';
+import Hero from './hero';
+import './menu.css';
 
-const Menu = () => {
-  const [showContent, setShowContent] = useState(true);
-  const [showNameRequest, setShowNameRequest] = useState(false);
+const MenuView = () => {
   const { service } = useApp();
-  const user = useSelector(service, ({ context }) => context.user);
-  const { send } = service;
+  const { actor } = useMenu();
+  const isUser = useSelector(service, ({ context }) => context.user && context.user !== '');
 
   const handlePlayButton = () => {
-    if (!user) {
-      setShowNameRequest(true);
+    if (isUser) {
+      actor.send({ type: 'START_GAME' });
     } else {
-      setShowContent(false);
-      setTimeout(() => {
-        send({ type: 'GO_PLAY' });
-      }, 700);
-    }
-  };
-
-  const handleCloseModal = (data?: string) => {
-    setShowNameRequest(false);
-    if (data) {
-      setShowContent(false);
-      setTimeout(() => {
-        send({ type: 'SET_USER', data });
-      }, 700);
+      actor.send({ type: 'TOGGLE_MODAL' });
     }
   };
 
   return (
-    <Fragment>
-      <Transition
-        appear={true}
-        show={showContent}
-        as={Fragment}
-        enter="ease-out"
-        enterFrom="opacity-0"
-        enterTo="opacity-100"
-        leave="ease-in"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0">
-        <div className={styles.menu}>
-          <Hero />
-          <h1>A MEMORY GAME</h1>
-          <p>ANIMALS</p>
-          <Button className="min-w-[8rem]" size="lg" onClick={handlePlayButton} variant="light">
-            Play
-          </Button>
-        </div>
-      </Transition>
-      <RequestName isOpen={showNameRequest} onClose={handleCloseModal} />
-    </Fragment>
+    <div className="menu">
+      <Header className="menu__header">
+        <Hero />
+      </Header>
+      <main className="menu__main">
+        <Button className="menu__start" onClick={handlePlayButton}>
+          START
+        </Button>
+      </main>
+      <Footer className="menu__footer" />
+      <RequestName />
+    </div>
   );
 };
 
-export default Menu;
+export default MenuView;

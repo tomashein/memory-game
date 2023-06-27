@@ -1,0 +1,15 @@
+.game {
+  @apply fade-in grid;
+
+  &__header {
+    @apply h-[14vh] landscape:max-lg:h-[19vh];
+  }
+
+  &__main {
+    @apply overflow-hidden flex justify-center items-center h-[78vh] px-4 landscape:max-lg:h-[68vh] lg:h-[76vh] lg:px-8;
+  }
+
+  &__footer {
+    @apply h-[8vh] landscape:max-lg:h-[13vh] lg:h-[10vh];
+  }
+}

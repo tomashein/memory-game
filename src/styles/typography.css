@@ -2,20 +2,20 @@
   @apply font-body;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply font-display;
-}
-
-a {
-  &:focus-visible {
-    @apply outline-none outline-2 outline-current outline-offset-2 rounded;
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
   }
-  &:hover {
-    @apply text-orange-400;
+
+  a {
+    @apply hover:text-primary-400 dark:hover:text-primary-400;
+    &:focus-visible {
+      @apply outline-none outline-2 outline-current outline-offset-2 rounded;
+    }
   }
 }

@@ -1,0 +1,17 @@
+.error-handler {
+  &__icon {
+    @apply h-16 w-16 text-primary-400;
+  }
+
+  &__title {
+    @apply mt-4 text-lg;
+  }
+
+  &__message {
+    @apply mt-2 text-zinc-600 dark:text-zinc-400;
+  }
+
+  &__retry {
+    @apply mt-12 min-w-[10rem];
+  }
+}

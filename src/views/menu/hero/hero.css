@@ -1,0 +1,16 @@
+.hero {
+  @apply flex mb-10 landscape:max-lg:mb-7;
+
+  > * {
+    @apply h-[15vh] min-w-[8rem] min-h-[8rem];
+    @apply landscape:max-lg:h-[25vh] landscape:max-lg:min-w-[6.5rem] landscape:max-lg:min-h-[6.5rem];
+  }
+
+  > :first-child {
+    transform: translate(0, -2vh) rotate(-12deg) rotateY(-180deg);
+  }
+
+  > :last-child {
+    transform: rotate(12deg) rotateY(-180deg);
+  }
+}
